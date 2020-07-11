@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   # index page
   root "posts#index"
+
+  # posts resources
+  resources :posts
 end
