@@ -47,8 +47,12 @@ class PostsController < ApplicationController
         end
     end
 
+    # This delete a post
     def destroy
-        # This delete a post
+        @post = Post.find(params[:id])  
+        @post.destroy
+        redirect_to posts_path
+        
     end
 
     private def post_params
