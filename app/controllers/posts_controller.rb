@@ -3,8 +3,10 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
 
+    # This loads the page to create a new post
     def new
-        # This loads the page to create a new post
+        #
+        @post = Post.new
     end
 
     # This method create the new post
@@ -12,9 +14,13 @@ class PostsController < ApplicationController
         # get the form data from the form on the "new" view
         @post = Post.new(post_params)
         # save the post
-        @post.save
-        # redirect to the "show" view
-        redirect_to @post
+        if(@post.save)
+            # redirect to the "show" view
+            redirect_to @post
+        else
+            # if form validation fails stay on the "new" view
+            render 'new'
+        end
     end
 
     # This loads a single post
