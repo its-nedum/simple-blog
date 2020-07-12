@@ -29,12 +29,22 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
     end
 
+    # This loads the edit page
     def edit
-        # This loads the edit page
+        # get the post to edit from DB
+        @post = Post.find(params[:id])
     end
 
+    # This method update the
     def update
-        # This method update the
+        # get the post from DB using url params - id
+        @post = Post.find(params[:id])
+        # update the post
+        if(@post.update(post_params))
+            redirect_to @post
+        else
+            render 'edit'
+        end
     end
 
     def destroy

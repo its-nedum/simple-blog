@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card mt-5 p-4">
     <div card-body>
         <h2 class="card-title"><%= @post.title %></h2>
         <p class="card-text"><%= @post.body %></p>
-        <%= link_to "Edit", post_path(post), :class => 'card-link btn btn-primary' %>
-        <%= link_to "Delete", post_path(post), :class => 'card-link btn btn-danger' %>
+        <hr>
+        <%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-primary mr-auto' %>
     </div>
 </div>
