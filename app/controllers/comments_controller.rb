@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+    # Rails authentication
+    http_basic_authenticate_with name: "chinedu", password: "1234567", only: [:destroy]
+
     # This method create a comment
     def create
         @post = Post.find(params[:post_id])
