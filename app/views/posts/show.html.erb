@@ -7,18 +7,8 @@
         <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger' %>
     </div>
     <hr>
-    <h3>Add Comment</h3>
-    <%= form_for([@post, @post.comment.build]) do |f| %>
-    <p>
-        <%= f.label :username %><br>
-        <%= f.text_field(:username, {:class => 'form-control'})%>
-    </p>
-    <p>
-        <%= f.label :body %><br>
-        <%= f.text_area(:username, {:class => 'form-control'})%>
-    </p>
-    <p>
-        <%= f.submit({:class => 'btn btn-default'}) %>
-    </p>
-    <% end %>
+    <%# display partial view for comments and comment form %>
+    <%= render 'comments/comments'%> 
+    <%= render 'comments/form'%> 
+    
 </div>

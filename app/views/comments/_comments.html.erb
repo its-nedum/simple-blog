@@ -1,0 +1,9 @@
+<h5><%= @post.comments.count %> Comment(s)</h5>
+<% @post.comments.each do |comment| %>
+    <div class="card">
+        <div class="card-body">
+            <p><strong><%= comment.username %>:</strong> <%= comment.body %></p>
+            <%= link_to '[Remove]', [comment.post, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
+    </div>
+<% end %>
